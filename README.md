@@ -6,6 +6,8 @@ The example visulizes a VSM step, showing the Value Add time vs the Total time f
 
 This example could be extended to read multiple steps from a csv, thus being able to visulize an entire VSM via post-its in miro. It would require additional code to loop a csv and drop the y position after each step.
 
+Note: The API calls are made in-loop but should be batched up and ran in parallel.
+
 ## Getting started
 
 Create token: https://developers.miro.com/docs/getting-started
