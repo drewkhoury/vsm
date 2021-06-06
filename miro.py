@@ -1,12 +1,12 @@
+
 import requests
 import json
+import time
 
 # pip3 install requests
 
-# add board id
 url = "https://api.miro.com/v1/boards/XXX/widgets"
 
-# add bearer
 headers = {
     "Accept": "application/json",
     "Content-Type": "application/json",
@@ -31,24 +31,22 @@ x_offset=0
 y=0
 x=0
 
-
+# create the cards the explain this vsm step:
 payload = {"type": "sticker","text": "VAT: "+str(value_time),"x": -180,"y": 0, "style": { "backgroundColor": "#67c6c0"} }
 print(payload)
 response = requests.post(url, headers=headers, json=payload)
-print(response.text)
 
 payload = {"type": "sticker","text": "Total: "+str(total_time),"x": -300,"y": 0, "style": { "backgroundColor": "#f16c7f"} }
 print(payload)
 response = requests.post(url, headers=headers, json=payload)
-print(response.text)
 
 payload = {"type": "sticker","text": "Step 1","x": -440,"y": 0, "style": { "backgroundColor": "#fff9b1"} }
 print(payload)
 response = requests.post(url, headers=headers, json=payload)
-print(response.text)
 
 while counter < total_time:
 
+    print('---')
     print(counter)
 
     if counter+1<=value_time:
@@ -80,12 +78,33 @@ while counter < total_time:
             x=x_offset
 
     payload = {"type": "sticker","text": "","x": x,"y": y, "style": { "backgroundColor": color} }
-    print(payload)
-
     response = requests.post(url, headers=headers, json=payload)
-    print(response.text)
+
+    if response.status_code == 200 or response.status_code == 201:
+        print('Success!')
+        print("%s credits remaining" % int(response.headers['X-RateLimit-Remaining'])  )
+
+        if( int(response.headers['X-RateLimit-Remaining']) < 100):
+            print('sleep, we do not want to upset the miro api gods')
+            time.sleep(10)
+
+    elif response.status_code == 429:
+        print('Rate limited!')
+        print(payload)
+        print(response.headers)
+        print(response.text)
+
+        print('hail mary until proper try/catch and api step-back, we will just wait some more and try the request again...')
+        time.sleep(30)
+        payload = {"type": "sticker","text": "","x": x,"y": y, "style": { "backgroundColor": color} }
+        response = requests.post(url, headers=headers, json=payload)
+
+
+    else:
+        print('???')
+        print(payload)
+        print(response.headers)
+        print(response.text)
 
     counter+=1
     x_counter+=1
-
-
