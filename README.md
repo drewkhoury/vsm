@@ -1,4 +1,6 @@
-# Traditional value streams
+# VSM Visualization
+
+## How traditional value streams work
 
 [Value-stream mapping](https://en.wikipedia.org/wiki/Value-stream_mapping) on wikipedia.
 
@@ -10,7 +12,7 @@ This **isn't the only way** we can represent the data, and our visulizations sho
 
 What if we could **more easily** visulaize the flow of work, and the biggest contraints in the system?
 
-# VSM Visualizer
+## VSM Visualizer (The perfect companion to the VSM)
 
 This script creates a **Value Stream Map Visualization** in Miro, using Google Sheets as in input.
 
