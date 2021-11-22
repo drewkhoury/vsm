@@ -2,7 +2,7 @@
 
 [Value-stream mapping](https://en.wikipedia.org/wiki/Value-stream_mapping) on wikipedia.
 
-![ValueStreamMap Parts](ValueStreamMapParts.png)
+![ValueStreamMap Parts](static/ValueStreamMapParts.png)
 
 Each step is represented in a uniform fashion on the diagram. You can scan the diagram and find out that 6 days is the largest lead time, however this takes more effort to do the more steps we add. There's a high cognitive burden when trying to process numbers and find the largest one.
 
