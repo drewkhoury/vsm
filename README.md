@@ -23,7 +23,7 @@ It's a slightly different way to view the data that's captured in a VSM workshop
 
 The script connects to miro and sheets APIs, and expects some env vars and an authentication file `credentials.json`.
 
-Once you have the [required auth/setup](##Authentication and Setup), run the script with the following commands:
+Once you have the [required auth/setup](#authentication-and-setup), run the script with the following commands:
 
 ```
 export MIRO_TOKEN='XXX'
