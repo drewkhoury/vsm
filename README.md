@@ -14,7 +14,7 @@ What if we could **more easily** visulaize the flow of work, and the biggest con
 
 This script creates a **Value Stream Map Visualization** in Miro, using Google Sheets as in input.
 
-![vsm](vsm.gif)
+![vsm](static/vsm.gif)
 
 It's a slightly different way to view the data that's captured in a VSM workshop that can compliment more traditional daigrams.
 
@@ -35,7 +35,7 @@ python3 ./vsm.py
 ```
 
 [Example sheet](https://docs.google.com/spreadsheets/d/1uazcbZjvfpCHL2ZwPoVc0gWjK7R5pMO9D8cxkKQ40C0/) and miro board:
-![sheet and miro](sheet-and-miro.png)
+![sheet and miro](static/sheet-and-miro.png)
 
 ### Controlling the grid (optional env vars):
 
@@ -51,13 +51,13 @@ The default values result in a single row for each step, with each neatly fittin
 
 It's easy to tell which steps are the longest, though for large numbers you'll have to zoom out to see the whole VSM.
 
-![grids](grid-single.png)
+![grids](static/grid-single.png)
 
 #### Custom grids
 It's possible to specify any grid size (e.g 5x5, 2x12, 100x3), with grids repeating in the X axis as needed. This can be desirable to make use of vertical space when you steps have large numbers.
 
 Here's the same data, with `GRID_X=5`,`GRID_Y=5` (creating a 5x5 grid for each step, and for steps with more than 25, multiple grids along the x axis):
-![grids](grids.png)
+![grids](static/grids.png)
 
 The script ensure uniform spacing between steps based on the largest possible row size, in this case `GRID_Y=5`. This means more space between steps that don't have large numbers.
 
