@@ -103,3 +103,7 @@ Env vars for the script:
 ```
 export SHEET_ID='XXX' # or skip to use the example sheet
 ```
+
+---
+
+Also posted as [Value Stream Map (VSM) Visualization](https://www.drewkhoury.com/post/2021-11-24_value-stream-map-visualization/) on drewkhoury.com
